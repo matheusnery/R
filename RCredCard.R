@@ -1,5 +1,5 @@
 getwd()
-setwd("C:/Users/ADVANCE/Documents/Python Scripts/DataScienceAcademy")
+setwd("-")
 
 #install.packages("Amelia")
 #install.packages("caret")
@@ -69,18 +69,18 @@ data$ID <- NULL
 #Total inadimplentes vs no-inadimplentes
 table(data$inadimplente)
 
-#plot da distribuição com ggplot
+#plot da distribuiÃ§Ã£o com ggplot
 qplot(inadimplente, data = data, geom = "bar") + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 #set the seed
 set.seed(12345)
 
-#Amostragem estratificada. Selecione as linhas de acordo com a variável inadimplente como strata
+#Amostragem estratificada. Selecione as linhas de acordo com a variÃ¡vel inadimplente como strata
 TrainingDataIndex <- createDataPartition(data$inadimplente, p= 0.45, list = FALSE)
 TrainingDataIndex
 
 
-#Criar  Dados de Treinamento como subconjunto do conjunto de dados com números de indice de linhas
+#Criar  Dados de Treinamento como subconjunto do conjunto de dados com nÃºmeros de indice de linhas
 #conforme identificado acima  e todas as colunas.
 trainData <- data[TrainingDataIndex,]
 table(trainData$inadimplente)
